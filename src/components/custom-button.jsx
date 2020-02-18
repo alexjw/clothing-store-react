@@ -2,8 +2,8 @@ import React from "react";
 
 import './custom-button.sass'
 
-const CustomButton = ({ children, ...otherProps }) => (
-    <button className='custom-button' {...otherProps}>
+const CustomButton = ({ children, extraClassName, ...otherProps }) => (
+    <button className={`custom-button ${extraClassName ? extraClassName : ''}`} {...otherProps}>
         { children }
     </button>
 );
