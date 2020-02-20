@@ -8,7 +8,7 @@ import CartDropdown from "./cart-dropdown";
 
 import './header.sass'
 
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser, hidden }) => (
     <div className='header'>
         <Link className='logo-container' to='/'>
             <Logo className='logo'/>
@@ -21,14 +21,15 @@ const Header = ({ currentUser }) => (
                     <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div> :
                     <Link className='option' to='/signin'>SIGN IN</Link>
             }
-            <CartIcon/>
+            <CartIcon />
         </div>
-        <CartDropdown/>
+        { !hidden ? <CartDropdown/> : null }
     </div>
 );
 
 const mapStateToProps = (state) => ({
-    currentUser: state.user.currentUser
+    currentUser: state.user.currentUser,
+    hidden: state.cart.hidden
 });
 
 export default connect(mapStateToProps)(Header)

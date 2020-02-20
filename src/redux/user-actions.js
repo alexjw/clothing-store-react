@@ -1,6 +1,8 @@
-import { ACTION_CONSTANTS } from "./action-constants";
+import ACTION_CONSTANTS from "./action-constants";
 
-export const setCurrentUser = user => ({
+const setCurrentUser = user => ({
     type: ACTION_CONSTANTS.SET_CURRENT_USER,
     payload: user
 });
+
+export default setCurrentUser

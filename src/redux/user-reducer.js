@@ -1,4 +1,4 @@
-import { ACTION_CONSTANTS } from "./action-constants";
+import ACTION_CONSTANTS from "./action-constants";
 
 const INITIAL_STATE = {
     currentUser: null
