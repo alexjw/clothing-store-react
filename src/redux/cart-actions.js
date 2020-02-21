@@ -1,7 +1,10 @@
 import ACTION_CONSTANTS from "./action-constants";
 
-const toggleCartHidden = () => ({
+export const toggleCartHidden = () => ({
     type: ACTION_CONSTANTS.TOGGLE_CART_HIDDEN
 });
 
-export default toggleCartHidden
+export const addItem = (item) => ({
+    type: ACTION_CONSTANTS.ADD_ITEM,
+    payload: item
+});

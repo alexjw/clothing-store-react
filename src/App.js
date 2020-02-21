@@ -8,7 +8,7 @@ import Header from "./components/header";
 import Sign from "./components/sign";
 import { auth, createUserProfileDocument } from './firebase/firebase.utils.js'
 import { connect } from 'react-redux'
-import setCurrentUser from "./redux/user-actions";
+import { setCurrentUser } from "./redux/user-actions";
 
 class App extends React.Component{
 

@@ -4,7 +4,7 @@ import './cart-icon.sass'
 import { ReactComponent as ShoppingIcon} from "../assets/shopping-bag.svg";
 import { connect } from "react-redux";
 
-import toggleCartHidden from "../redux/cart-actions";
+import { toggleCartHidden } from "../redux/cart-actions";
 
 const CartIcon = ({ toggleCartHidden }) => (
     <div className='cart-icon'  onClick={ toggleCartHidden }>
