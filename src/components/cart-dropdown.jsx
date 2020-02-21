@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import './cart-dropdown.sass'
 import CartItem from "./cart-item";
-import { selectCartItems } from "../redux/cart-selectors";
+import { selectCartItems } from "../redux/selectors";
 
 const CartDropdown = ({ cartItems }) => (
     <div className='cart-dropdown'>
