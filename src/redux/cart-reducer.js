@@ -1,5 +1,5 @@
 import ACTION_CONSTANTS from "./action-constants";
-import {addItemToCart} from "./utils";
+import {addItemToCart, decreaseItemOfCart} from "./utils";
 
 const INITIAL_STATE = {
     hidden: true,
@@ -22,6 +22,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 cartItems: state.cartItems.filter(item => item.id !== action.payload.id)
+            };
+        case ACTION_CONSTANTS.DECREASE_ITEM_FROM_CART:
+            return {
+                ...state,
+                cartItems: decreaseItemOfCart(state.cartItems, action.payload)
             };
         default:
             return state;

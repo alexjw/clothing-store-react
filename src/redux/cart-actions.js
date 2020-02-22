@@ -14,4 +14,11 @@ export const clearItemFromCart = item => (
         type: ACTION_CONSTANTS.REMOVE_ITEM_FROM_CART,
         payload: item
     }
-)
+);
+
+export const decreaseItemFromCart = item => (
+    {
+        type: ACTION_CONSTANTS.DECREASE_ITEM_FROM_CART,
+        payload: item
+    }
+);
