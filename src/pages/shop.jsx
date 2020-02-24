@@ -1,13 +1,12 @@
 import React from "react";
-import SHOP_DATA from "./shopData";
-import CollectionPreview from "../components/collection-preview";
-import {createStructuredSelector} from "reselect";
-import {selectCollections} from "../redux/selectors";
-import {connect} from "react-redux";
 import CollectionsOverview from "../components/collections-overview";
+import {Route} from "react-router-dom";
+import CollectionPage from "./collection";
 
-const ShopPage = ({collections}) => (
+const ShopPage = ({match}) => (
     <div className='shop-page'>
+        <Route exact path={`${match.path}`} component={CollectionsOverview}/>
+        <Route path={`${match.path}/:collectionId`} component={CollectionPage}/>
         <CollectionsOverview/>
     </div>
 );

@@ -62,12 +62,12 @@ const mapDispatchToProps = (dispatch) => {
     let result = {
         setCurrentUser: (user) => dispatch(setCurrentUser(user))
     };
-    console.log('mapDispatchToProps:');
+    /*console.log('mapDispatchToProps:');
     console.log(result);
     console.log('result.setCurrentUser');
     console.log(result.setCurrentUser);
     console.log('setCurrentUser');
-    console.log(setCurrentUser);
+    console.log(setCurrentUser);*/
     return result
 };
 
