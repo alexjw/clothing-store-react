@@ -3,10 +3,18 @@ import React from "react";
 import './collection.sass'
 import {selectCollectionId} from "../redux/selectors";
 import {connect} from "react-redux";
+import CollectionItem from "../components/collection-item";
 
-const CollectionPage = ({match}) => (
+const CollectionPage = ( {collection} ) => (
     <div className='collection-page'>
-        <h2>Collection Page</h2>
+        <h2>{ collection.title }</h2>
+        <div className='items'>
+            {
+                collection.items.map(item => (
+                    <CollectionItem key={item.id} item={item}/>
+                ))
+            }
+        </div>
     </div>
 );
 
