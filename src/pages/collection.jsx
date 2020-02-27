@@ -5,18 +5,19 @@ import {selectCollectionId} from "../redux/selectors";
 import {connect} from "react-redux";
 import CollectionItem from "../components/collection-item";
 
-const CollectionPage = ( {collection} ) => (
-    <div className='collection-page'>
-        <h2>{ collection.title }</h2>
+const CollectionPage = ( props ) => {
+    console.log(props)
+    return <div className='collection-page'>
+        <h2>{ props.collection.title }</h2>
         <div className='items'>
             {
-                collection.items.map(item => (
+                props.collection.items.map(item => (
                     <CollectionItem key={item.id} item={item}/>
                 ))
             }
         </div>
     </div>
-);
+};
 
 const mapStateToProps = (state, ownProps) => {
     //console.log(ownProps);
