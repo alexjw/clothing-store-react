@@ -15,7 +15,7 @@ export const fetchCollectionFailure = error => ({
     payload: error
 });
 
-export const fetchCollectionStartAsync = () => {
+export const fetchCollectionStartAsync = () => {    // deprecated after saga
     return dispatch => {
         const collectionRef = firestore.collection('collections');
 
