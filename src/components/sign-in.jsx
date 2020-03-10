@@ -5,7 +5,7 @@ import './sign-in.sass'
 import FormInput from "./form-input";
 import CustomButton from "./custom-button";
 import { SignInWithGoogle, auth } from "../firebase/firebase.utils";
-import {googleSignInStart} from "../redux/user-actions";
+import {emailSignInStart, googleSignInStart} from "../redux/user-actions";
 import {connect} from "react-redux";
 
 class SignIn extends React.Component {
@@ -22,13 +22,14 @@ class SignIn extends React.Component {
         event.preventDefault();
 
         const { email, password } = this.state;
+        this.props.emailSignInStart(email, password);
 
-        try {
+        /*try {
             await auth.signInWithEmailAndPassword(email, password);
             this.setState({ email: '', password: '' })
         } catch (e) {
 
-        }
+        }*/ // deprecated
     };
 
     handleChange = event => {
@@ -56,7 +57,8 @@ class SignIn extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    googleSignInStart: () => dispatch(googleSignInStart())
+    googleSignInStart: () => dispatch(googleSignInStart()),
+    emailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password }))
 });
 
 export default connect(null, mapDispatchToProps)(SignIn)
