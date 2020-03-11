@@ -15,7 +15,18 @@ export const signInFailure = error => ({
     payload: error
 });
 
+export const signOutStart = () => ({
+    type: ACTION_CONSTANTS.SIGN_OUT_START
+});
 
+export const signOutSuccess = () => ({
+    type: ACTION_CONSTANTS.SIGN_OUT_SUCCESS
+});
+
+export const signOutFailure = error => ({
+    type: ACTION_CONSTANTS.SIGN_OUT_FAILURE,
+    payload: error
+});
 
 export const googleSignInStart = () => ({
     type: ACTION_CONSTANTS.GOOGLE_SIGN_IN_START
