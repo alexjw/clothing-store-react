@@ -1,6 +1,6 @@
 import { all, call } from 'redux-saga/effects'
 import {fetchCollectionsStart} from "./shop-saga";
-import {userSaga} from "./user-saga";
+import {isUserAuthenticated, userSaga} from "./user-saga";
 
 export default function* rootSaga() {
 

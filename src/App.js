@@ -8,7 +8,7 @@ import Header from "./components/header";
 import Sign from "./components/sign";
 import { auth, createUserProfileDocument } from './firebase/firebase.utils.js'
 import { connect } from 'react-redux'
-import { setCurrentUser } from "./redux/user-actions";
+import {checkUserSession, setCurrentUser} from "./redux/user-actions";
 import {createStructuredSelector} from "reselect";
 import {selectCurrentUser} from "./redux/selectors";
 import checkoutPage from "./pages/checkout";
@@ -18,7 +18,8 @@ class App extends React.Component{
     unsubscribeFromAuth = null;
 
     componentDidMount() {
-        const { setCurrentUser } = this.props;
+
+        this.props.checkUserSession();
 
         /*this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => {
             if(userAuth) {
@@ -58,18 +59,17 @@ const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser
 });
 
-const mapDispatchToProps = (dispatch) => {
-
-    let result = {
+const mapDispatchToProps = (dispatch) => (
+    { checkUserSession: () => dispatch(checkUserSession()) }
+    /*let result = {
         setCurrentUser: (user) => dispatch(setCurrentUser(user))
-    };
+    };*/
     /*console.log('mapDispatchToProps:');
     console.log(result);
     console.log('result.setCurrentUser');
     console.log(result.setCurrentUser);
     console.log('setCurrentUser');
     console.log(setCurrentUser);*/
-    return result
-};
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

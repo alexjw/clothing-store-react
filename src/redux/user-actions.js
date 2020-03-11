@@ -5,6 +5,18 @@ export const setCurrentUser = user => ({
     payload: user
 });
 
+export const signInSuccess = user => ({
+    type: ACTION_CONSTANTS.SIGN_IN_SUCCESS,
+    payload: user
+});
+
+export const signInFailure = error => ({
+    type: ACTION_CONSTANTS.SIGN_IN_FAILURE,
+    payload: error
+});
+
+
+
 export const googleSignInStart = () => ({
     type: ACTION_CONSTANTS.GOOGLE_SIGN_IN_START
 });
@@ -33,3 +45,7 @@ export const emailSignInFailure = (error) => ({
     type: ACTION_CONSTANTS.EMAIL_SIGN_IN_FAILURE,
     payload: error
 });
+
+export const checkUserSession = () => (
+    { type: ACTION_CONSTANTS.CHECK_USER_SESSION }
+);
