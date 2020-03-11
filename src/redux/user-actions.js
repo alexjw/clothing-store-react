@@ -60,3 +60,15 @@ export const emailSignInFailure = (error) => ({
 export const checkUserSession = () => (
     { type: ACTION_CONSTANTS.CHECK_USER_SESSION }
 );
+
+export const signUpStart = (userCredentials) => (
+    { type: ACTION_CONSTANTS.SIGN_UP_START, payload: userCredentials}
+);
+
+export const signUpSuccess = ({ user, additionalData }) => (
+    { type: ACTION_CONSTANTS.SIGN_UP_SUCCESS, payload: { user, additionalData } }
+);
+
+export const signUpFailure = (error) => (
+    { type: ACTION_CONSTANTS.SIGN_UP_FAILURE, payload: error }
+);
