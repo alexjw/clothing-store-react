@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom'
 import './App.css';
 
@@ -13,11 +13,13 @@ import {createStructuredSelector} from "reselect";
 import {selectCurrentUser} from "./redux/selectors";
 import checkoutPage from "./pages/checkout";
 
-class App extends React.Component{
+const App = (props) => {
 
-    unsubscribeFromAuth = null;
+    const unsubscribeFromAuth = null;
 
-    componentDidMount() {
+    useEffect(() => { props.checkUserSession() }, []);
+
+    /*componentDidMount() { // deprecated to hooks
 
         this.props.checkUserSession();
 
@@ -35,20 +37,16 @@ class App extends React.Component{
             else {
                 setCurrentUser(null);
             }
-        });*/ // deprecated to saga
-    }
+        }); // deprecated to saga
+    }*/
 
-    componentWillUnmount() {
-        this.unsubscribeFromAuth()
-    }
-
-    render = () => (
+    return (
         <div>
             <Header/>
             <Switch>
                 <Route exact path='/' component={HomePage}/>
                 <Route path='/shop' component={ShopPage}/>
-                <Route exact path='/signin' render={ () => this.props.currentUser ? <Redirect to={'/'}/> : <Sign/> }/>
+                <Route exact path='/signin' render={ () => props.currentUser ? <Redirect to={'/'}/> : <Sign/> }/>
                 <Route exact path='/checkout' component={checkoutPage}/>
             </Switch>
         </div>
