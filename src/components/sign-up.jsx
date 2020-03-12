@@ -5,7 +5,6 @@ import './sign-up.sass'
 import FormInput from "./form-input";
 import CustomButton from "./custom-button";
 
-import { auth, createUserProfileDocument} from "../firebase/firebase.utils";
 import {signUpStart} from "../redux/user-actions";
 import {connect} from "react-redux";
 
